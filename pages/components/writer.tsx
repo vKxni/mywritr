@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import styles from "./writer.module.css";
 
 import words from "../../data.json";
+import { deleteKey, visibleKey } from "../hotkeys";
 
 function Writer() {
   const [data, setData] = useState("");
@@ -21,6 +22,18 @@ function Writer() {
     setData("");
   }
 
+  // hotkeys to make an alternative to the buttons
+  const hotkeys = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.code === "Enter" && event.ctrlKey) {
+      makeVisible();
+    }
+
+    if (event.code === "Backspace" && event.ctrlKey) {
+      deleteContent();
+    }
+  };
+
+  // utility stuff and security checks
   useEffect(() => {
     if (data.length > 500) {
       setPrint(true);
@@ -42,6 +55,7 @@ function Writer() {
           <input
             className={styles.input}
             type="text"
+            onKeyDown={hotkeys}
             value={isTextHidden ? data : ""}
             onChange={(e) => getData(e)}
           ></input>
