@@ -2,6 +2,8 @@ import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import styles from "./writer.module.css";
 
+import words from "../../data.json";
+
 function Writer() {
   const [data, setData] = useState("");
   const [isTextHidden, setTextHidden] = useState(true);
@@ -19,13 +21,18 @@ function Writer() {
     setData("");
   }
 
-  // once the entered texts length is over 500
-  // reset the data and entered text
   useEffect(() => {
     if (data.length > 500) {
       setPrint(true);
       setData("");
     }
+    words.map((word) => {
+      if (data.includes(word)) {
+        setPrint(true);
+        setData("");
+        setData("YOU ARE IMPORTANT!");
+      }
+    });
   }, [data]);
 
   return (
