@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import styles from "./writer.module.css";
 
+import styles from "./writer.module.css";
 import words from "../../data.json";
-import { deleteKey, visibleKey } from "../hotkeys";
 
 function Writer() {
   const [data, setData] = useState("");
@@ -22,8 +21,14 @@ function Writer() {
     setData("");
   }
 
+  const confirmDelete = () => {
+    if (window.confirm("Do you really want to delete your text?")) {
+      deleteContent();
+    }
+  };
+
   // hotkeys to make an alternative to the buttons
-  const hotkeys = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  const hotkeys = async (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.code === "Enter" && event.ctrlKey) {
       makeVisible();
     }
@@ -33,7 +38,7 @@ function Writer() {
     }
   };
 
-  // utility stuff and security checks
+  // utility event stuff and security checks
   useEffect(() => {
     if (data.length > 500) {
       setPrint(true);
@@ -62,7 +67,7 @@ function Writer() {
           <p className={styles.text}>{isTextHidden ? data : ""}</p>
         </div>
 
-        <button className={styles.deletebutton} onClick={deleteContent}>
+        <button className={styles.deletebutton} onClick={confirmDelete}>
           Delete
         </button>
         <button className={styles.hidebutton} onClick={makeVisible}>
