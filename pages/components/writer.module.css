@@ -97,6 +97,30 @@
   right: 60rem;
 }
 
+@media (max-width: 600px) {
+  .input {
+    left: 50%;
+    transform: translateX(-80%);
+  }
+
+  .text {
+    left: 50%;
+    transform: translateX(-30%);
+  }
+
+  .deletebutton {
+    right: 70%;
+    top: 4rem;
+    transform: translateX(30%);
+  }
+
+  .hidebutton {
+    right: 20%;
+    top: 4rem;
+    transform: translateX(30%);
+  }
+}
+
 @media (max-width: 1300px) {
   .main {
     top: 20%;
