@@ -4,12 +4,19 @@ import styles from "./writer.module.css";
 
 function Writer() {
   const [data, setData] = useState("");
-  const [enteredText, setEnteredText] = useState("");
+  const [isTextHidden, setTextHidden] = useState(true);
   const [print, setPrint] = useState(false);
 
   function getData(val: React.ChangeEvent<HTMLInputElement>) {
     setPrint(false);
     setData(val.target.value);
+  }
+
+  const makeVisible = () => setTextHidden(!isTextHidden);
+
+  function deleteContent() {
+    setPrint(false);
+    setData("");
   }
 
   // once the entered texts length is over 500
@@ -28,11 +35,18 @@ function Writer() {
           <input
             className={styles.input}
             type="text"
-            value={data}
-            onChange={getData}
+            value={isTextHidden ? data : ""}
+            onChange={(e) => getData(e)}
           ></input>
-          <p className={styles.text}>{data}</p>
+          <p className={styles.text}>{isTextHidden ? data : ""}</p>
         </div>
+
+        <button className={styles.deletebutton} onClick={deleteContent}>
+          Delete
+        </button>
+        <button className={styles.hidebutton} onClick={makeVisible}>
+          {isTextHidden ? "Hide" : "Show"}
+        </button>
 
         <div className={styles.navbar}>
           <Link href={"/why"}>

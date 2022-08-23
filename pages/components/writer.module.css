@@ -69,6 +69,34 @@
   border-bottom: 3px solid grey;
 }
 
+.deletebutton {
+  background-color: #fff;
+  border: none;
+  border-radius: 1rem;
+  color: #000;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  top: 12rem;
+  right: 59.5rem;
+}
+
+.hidebutton {
+  background-color: #fff;
+  border: none;
+  border-radius: 1rem;
+  color: #000;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  top: 15rem;
+  right: 60rem;
+}
+
 @media (max-width: 1300px) {
   .main {
     top: 20%;
