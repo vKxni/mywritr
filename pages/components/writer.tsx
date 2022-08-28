@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import styles from "./writer.module.css";
 import words from "../../data.json";
 
+import Spline from "@splinetool/react-spline";
+
 function Writer() {
   const [data, setData] = useState("");
   const [isTextHidden, setTextHidden] = useState(true);
@@ -22,7 +24,8 @@ function Writer() {
   }
 
   const confirmDelete = () => {
-    if (window.confirm("Do you really want to delete your text?")) {
+    if (data.length >= 1) {
+      window.confirm("Do you really want to delete your text?");
       deleteContent();
     }
   };
@@ -49,6 +52,10 @@ function Writer() {
         setPrint(true);
         setData("");
         setData("YOU ARE IMPORTANT!");
+
+        setTimeout(() => {
+          setData("");
+        }, 3000);
       }
     });
   }, [data]);
@@ -73,6 +80,10 @@ function Writer() {
         <button className={styles.hidebutton} onClick={makeVisible}>
           {isTextHidden ? "Hide" : "Show"}
         </button>
+
+        {/* <div className={styles.scene}>
+          <Spline scene="https://prod.spline.design/q0FwFTTPLvvhcBK0/scene.splinecode" />
+        </div> */}
 
         <div className={styles.navbar}>
           <Link href={"/why"}>

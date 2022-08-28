@@ -97,6 +97,48 @@
   right: 60rem;
 }
 
+@media (max-width: 900px) {
+  .input {
+    left: 50%;
+    transform: translateX(-70%);
+  }
+  .text {
+    left: 50%;
+    transform: translateX(-21%);
+  }
+  .deletebutton {
+    right: 70%;
+    top: 15rem;
+    transform: translateX(-5%);
+  }
+  .hidebutton {
+    right: 70%;
+    top: 20rem;
+    transform: translateX(-10%);
+  }
+}
+
+@media (max-width: 1700px) {
+  .input {
+    left: 55%;
+    transform: translateX(-70%);
+  }
+  .text {
+    left: 50%;
+    transform: translateX(-15%);
+  }
+  .deletebutton {
+    right: 70%;
+    top: 15rem;
+    transform: translateX(-5%);
+  }
+  .hidebutton {
+    right: 70%;
+    top: 20rem;
+    transform: translateX(-15%);
+  }
+}
+
 @media (max-width: 600px) {
   .input {
     left: 50%;
