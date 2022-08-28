@@ -166,7 +166,7 @@
 @media (max-width: 1300px) {
   .main {
     top: 20%;
-    left: 40.5%;
+    left: 43%;
   }
 
   .text {
@@ -176,7 +176,7 @@
 
   .input {
     position: relative;
-    right: -3%;
+    right: 5rem;
   }
 
   .navbar {
