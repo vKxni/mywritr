@@ -24,8 +24,8 @@ function Writer() {
   }
 
   const confirmDelete = () => {
-    if (data.length >= 1) {
-      window.confirm("Do you really want to delete your text?");
+    if (data.length >= 5) {
+      // window.confirm("Do you really want to delete your text?");
       deleteContent();
     }
   };
