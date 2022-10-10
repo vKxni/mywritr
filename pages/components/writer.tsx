@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 import styles from "./writer.module.css";
 import words from "../../data.json";
 
-import Spline from "@splinetool/react-spline";
-
 function Writer() {
   const [data, setData] = useState("");
   const [isTextHidden, setTextHidden] = useState(true);
@@ -80,10 +78,6 @@ function Writer() {
         <button className={styles.hidebutton} onClick={makeVisible}>
           {isTextHidden ? "Hide" : "Show"}
         </button>
-
-        {/* <div className={styles.scene}>
-          <Spline scene="https://prod.spline.design/q0FwFTTPLvvhcBK0/scene.splinecode" />
-        </div> */}
 
         <div className={styles.navbar}>
           <Link href={"/why"}>
